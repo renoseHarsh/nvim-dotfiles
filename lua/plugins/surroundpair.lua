@@ -1,7 +1,7 @@
 return {
 	{
 		'jiangmiao/auto-pairs',
-		event = 'InsertEnter',
+		event = { 'BufReadPre', 'BufNewFile' },
 	},
 	{
 		'kylechui/nvim-surround',
