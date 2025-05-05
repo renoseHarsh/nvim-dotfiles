@@ -1,0 +1,36 @@
+local opt = vim.opt
+
+opt.number = true
+opt.relativenumber = true
+
+opt.shiftwidth = 2
+opt.tabstop = 2
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+vim.opt.termguicolors = true
+
+opt.clipboard = 'unnamedplus'
+
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+	desc = 'Highlight when yanking (copying) text',
+	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
+
+vim.api.nvim_create_autocmd('InsertLeave', {
+	desc = 'Enable Diasnostic signs when leaving insert mode',
+	callback = function()
+		vim.diagnostic.show()
+	end,
+})
+
+vim.diagnostic.config {
+	virtual_text = true,
+	signs = false,
+	severity_sort = true,
+}
