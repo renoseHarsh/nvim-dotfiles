@@ -8,6 +8,8 @@ return {
 			theme = 'doom',
 			config = {
 				header = {
+					[[                                                  ]],
+					[[                                                  ]],
 					[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⣤⣤⣤⡼⠀⢀⡀⣀⢱⡄⡀⠀⠀⠀⢲⣤⣤⣤⣤⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
 					[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣾⣿⣿⣿⣿⣿⡿⠛⠋⠁⣤⣿⣿⣿⣧⣷⠀⠀⠘⠉⠛⢻⣷⣿⣽⣿⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀]],
 					[[⠀⠀⠀⠀⠀⠀⢀⣴⣞⣽⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀⠠⣿⣿⡟⢻⣿⣿⣇⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣟⢦⡀⠀⠀⠀⠀⠀⠀]],
@@ -24,7 +26,11 @@ return {
 					[[⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁]],
 					[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡁⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
 					[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣼⣀⣠⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+					[[                                                  ]],
+					[[                                                  ]],
 					string.format('⏱️ Startup time: %.2f ms', stats.times.LazyDone),
+					[[                                                  ]],
+					[[                                                  ]],
 					[[                                                  ]],
 				},
 				-- week_header = {
@@ -63,6 +69,14 @@ return {
 						key_hl = 'group',
 						key_format = '%s',
 						action = 'lua require("telescope.builtin").find_files({cwd=vim.fn.stdpath("config")})',
+					},
+					{
+						desc = 'Leetcode                                       ',
+						desc_hl = 'group',
+						key = 'l',
+						key_hl = 'group',
+						key_format = '%s',
+						action = 'Leet',
 					},
 				},
 				footer = { string.format('⚡ Loaded %d/%d plugins', stats.loaded, stats.count) },

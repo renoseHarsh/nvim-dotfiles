@@ -4,7 +4,7 @@ return {
 	event = { 'BufReadPre', 'BufNewFile' },
 	config = function()
 		require('nvim-treesitter.configs').setup {
-			ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline' },
+			ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline', 'html' },
 			sync_install = false,
 			auto_install = true,
 			ignore_install = {},
