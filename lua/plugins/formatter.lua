@@ -10,6 +10,8 @@ return {
 				rust = { 'rustfmt' },
 				jsonc = { 'prettier' },
 				css = { 'prettier' },
+				cpp = { 'clang-format' },
+				sh = { 'shfmt' },
 			},
 			format_on_save = {
 				lsp_format = 'fallback',

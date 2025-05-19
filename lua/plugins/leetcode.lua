@@ -1,6 +1,7 @@
 return {
 	'kawre/leetcode.nvim',
-	build = ':TSUpdate html', -- if you have `nvim-treesitter` installed
+	build = ':TSUpdate html',
+	cmd = { 'Leet' },
 	dependencies = {
 		'nvim-telescope/telescope.nvim',
 		'nvim-lua/plenary.nvim',

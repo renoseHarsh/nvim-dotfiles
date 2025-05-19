@@ -1,6 +1,5 @@
 return {
 	'mfussenegger/nvim-lint',
-	enabled = false,
 	event = { 'BufNewFile', 'BufReadPre' },
 
 	config = function()
@@ -14,7 +13,6 @@ return {
 				lint.try_lint()
 			end,
 		})
- 'adn'
 
 		vim.keymap.set('n', '<leader>ll', function()
 			lint.try_lint()

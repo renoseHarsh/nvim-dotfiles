@@ -5,10 +5,20 @@ opt.relativenumber = true
 
 opt.shiftwidth = 2
 opt.tabstop = 2
-vim.opt.smartindent = true
-vim.opt.autoindent = true
+opt.smartindent = true
+opt.autoindent = true
 
-vim.opt.termguicolors = true
+opt.swapfile = false
+
+opt.incsearch = true
+
+opt.scrolloff = 8
+opt.signcolumn = 'yes'
+
+opt.termguicolors = true
+
+opt.mouse = 'a'
+opt.mousemoveevent = true
 
 opt.clipboard = 'unnamedplus'
 
