@@ -10,6 +10,7 @@ return {
 	},
 	opts = {
 		options = {
+			mode = 'tabs',
 			themable = true,
 			diagnostics = 'nvim_lsp',
 			hover = {
