@@ -9,5 +9,6 @@ return {
 	---@type AutoSession.Config
 	opts = {
 		suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/', '~/.local/share/nvim/leetcode' },
+		auto_save = true,
 	},
 }

@@ -37,7 +37,7 @@ return {
 	{
 		'neovim/nvim-lspconfig',
 		event = { 'BufReadPre', 'BufNewFile' },
-		vim.lsp.enable { 'lua_ls', 'rust_analyzer', 'jsonls', 'cssls', 'pyright', 'clangd' },
+		vim.lsp.enable { 'lua_ls', 'rust_analyzer', 'jsonls', 'cssls', 'pyright', 'clangd', 'pyright' },
 	},
 }
 -- json.format.enable

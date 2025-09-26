@@ -26,3 +26,34 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
 vim.keymap.set('n', '<leader>mk', ':make<cr>')
+
+vim.keymap.set('n', 'c', '"_c')
+vim.keymap.set('n', 'C', '"_C')
+
+vim.keymap.set('n', 'd', '"_d')
+vim.keymap.set('n', 'D', '"_D')
+vim.keymap.set('v', 'd', '"_d')
+vim.keymap.set('n', '<leader>d', '"+d')
+vim.keymap.set('v', '<leader>d', '"+d')
+
+vim.keymap.set('n', 'x', '"_x')
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'cpp',
+	callback = function()
+		vim.keymap.set('n', '<F5>', function()
+			local file = vim.fn.expand '%'
+			local name = vim.fn.expand '%:t:r'
+			local output = '/tmp/' .. name
+			vim.cmd 'w'
+
+			if not _G.cpp_term then
+				local Terminal = require('toggleterm.terminal').Terminal
+				_G.cpp_term = Terminal:new { close_on_exit = true }
+			end
+
+			_G.cpp_term:toggle()
+			_G.cpp_term:send('g++ -Wall -Wextra -o ' .. output .. ' ' .. file .. ' && ' .. output .. '\n')
+		end, { buffer = true, noremap = true, silent = true })
+	end,
+})

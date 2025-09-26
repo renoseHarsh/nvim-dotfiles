@@ -12,6 +12,9 @@ return {
 				css = { 'prettier' },
 				cpp = { 'clang-format' },
 				sh = { 'shfmt' },
+				c = { 'clang-format' },
+				h = { 'clang-format' },
+				python = { 'black', 'isort' },
 			},
 			format_on_save = {
 				lsp_format = 'fallback',
