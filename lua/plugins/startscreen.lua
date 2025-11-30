@@ -44,7 +44,7 @@ return {
 						key = 's',
 						key_hl = 'group',
 						key_format = '%s',
-						action = 'SessionSearch',
+						action = 'AutoSession search',
 					},
 					{
 						desc = 'Find Files                                      ',

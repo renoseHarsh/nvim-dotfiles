@@ -16,6 +16,13 @@ return {
 				h = { 'clang-format' },
 				python = { 'black', 'isort' },
 			},
+			formatters = {
+				['clang-format'] = {
+					args = {
+						'--style={IndentWidth: 4, TabWidth: 4, UseTab: Never, AllowShortIfStatementsOnASingleLine: AllIfsAndElse, AllowShortLoopsOnASingleLine: True, AllowShortFunctionsOnASingleLine: None}',
+					},
+				},
+			},
 			format_on_save = {
 				lsp_format = 'fallback',
 			},

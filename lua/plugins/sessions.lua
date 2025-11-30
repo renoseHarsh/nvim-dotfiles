@@ -2,7 +2,7 @@ return {
 	'rmagatti/auto-session',
 	lazy = false,
 	keys = {
-		{ '<leader>wr', '<cmd>SessionSearch<CR>', desc = 'Session search' },
+		{ '<leader>wr', '<cmd>AutoSession search<CR>', desc = 'Session search' },
 		{ '<leader>ws', '<cmd>SessionSave<CR>', desc = 'Save session' },
 	},
 	---@module "auto-session"
