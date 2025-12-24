@@ -19,7 +19,8 @@ return {
 			formatters = {
 				['clang-format'] = {
 					args = {
-						'--style={IndentWidth: 4, TabWidth: 4, UseTab: Never, AllowShortIfStatementsOnASingleLine: AllIfsAndElse, AllowShortLoopsOnASingleLine: True, AllowShortFunctionsOnASingleLine: None}',
+						'--style=file',
+						'--fallback-style=Google',
 					},
 				},
 			},

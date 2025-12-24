@@ -1,12 +1,10 @@
 return {
 	'rmagatti/auto-session',
-	lazy = false,
+	cmd = { 'AutoSession', 'SaveSession', 'RestoreSession', 'DeleteSession' },
 	keys = {
 		{ '<leader>wr', '<cmd>AutoSession search<CR>', desc = 'Session search' },
-		{ '<leader>ws', '<cmd>SessionSave<CR>', desc = 'Save session' },
+		{ '<leader>ws', '<cmd>AutoSession save<CR>', desc = 'Save session' },
 	},
-	---@module "auto-session"
-	---@type AutoSession.Config
 	opts = {
 		suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/', '~/.local/share/nvim/leetcode' },
 		auto_save = true,

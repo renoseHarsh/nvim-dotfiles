@@ -1,7 +1,17 @@
 return {
 	{
+		'folke/lazydev.nvim',
+		ft = 'lua',
+		opts = {
+			library = {
+				{ path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+				'snacks.nvim',
+			},
+		},
+	},
+	{
 		'williamboman/mason.nvim',
-		event = { 'BufReadPre', 'BufNewFile' },
+		event = 'VeryLazy',
 
 		opts = {
 			ui = {
@@ -15,18 +25,7 @@ return {
 	},
 	{
 		'williamboman/mason-lspconfig.nvim',
-		dependencies = {
-			{
-				'folke/lazydev.nvim',
-				ft = 'lua',
-				opts = {
-					library = {
-						{ path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-					},
-				},
-			},
-		},
-		event = { 'BufReadPre', 'BufNewFile' },
+		cmd = { 'Mason', 'MasonInstall' },
 
 		opts = {
 			ensure_installed = { 'lua_ls' },
@@ -34,7 +33,7 @@ return {
 	},
 	{
 		'neovim/nvim-lspconfig',
-		event = { 'BufReadPre', 'BufNewFile' },
-		vim.lsp.enable { 'lua_ls', 'rust_analyzer', 'jsonls', 'cssls', 'pyright', 'clangd', 'pyright' },
+		event = 'VeryLazy',
+		vim.lsp.enable { 'lua_ls', 'rust_analyzer', 'jsonls', 'cssls', 'clangd', 'pyright' },
 	},
 }
