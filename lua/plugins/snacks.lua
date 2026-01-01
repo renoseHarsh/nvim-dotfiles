@@ -39,7 +39,6 @@ return {
 		},
 		explorer = { enabled = true },
 		notifier = { enabled = true },
-		-- scroll = { enabled = true },
 	},
 	keys = {
 		{
@@ -114,6 +113,20 @@ return {
 				Snacks.picker.explorer()
 			end,
 			desc = 'File Explorer',
+		},
+		{
+			'<leader>.',
+			function()
+				Snacks.scratch()
+			end,
+			desc = 'Toggle Scratch Buffer',
+		},
+		{
+			'<leader>S',
+			function()
+				Snacks.scratch.select()
+			end,
+			desc = 'Select Scratch Buffer',
 		},
 	},
 }

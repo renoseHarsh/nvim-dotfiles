@@ -2,11 +2,11 @@ return {
 	{
 		'windwp/nvim-autopairs',
 		event = { 'BufReadPre', 'BufNewFile' },
-        opts = {}
+		opts = {},
 	},
 	{
 		'kylechui/nvim-surround',
 		event = { 'BufReadPre', 'BufNewFile' },
-        opts = {}
+		opts = {},
 	},
 }

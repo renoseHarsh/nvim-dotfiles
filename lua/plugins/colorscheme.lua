@@ -1,10 +1,21 @@
 return {
 	{
 		'folke/tokyonight.nvim',
-		lazy = false,
-		priority = 1000,
 		config = function()
-			vim.cmd [[colorscheme tokyonight-night]]
+			-- require('tokyonight').setup {
+			-- 	transparent = true,
+			-- 	styles = {
+			-- 		sidebars = 'transparent',
+			-- 		floats = 'transparent',
+			-- 	},
+			-- }
+			-- vim.cmd [[colorscheme tokyonight]]
+                vim.api.nvim_create_autocmd("UIEnter", {
+      once = true,
+      callback = function()
+        vim.cmd("colorscheme tokyonight")
+      end,
+    })
 		end,
 	},
 	-- {
@@ -24,9 +35,9 @@ return {
 	-- end,
 	-- },
 	-- {
-	-- 'uZer/pywal16.nvim',
-	-- lazy = false,
-	-- priority = 1000,
+	-- 	'uZer/pywal16.nvim',
+	-- 	lazy = false,
+	-- 	priority = 1000,
 	-- 	config = function()
 	-- 		vim.cmd.colorscheme 'pywal16'
 	-- 	end,

@@ -57,8 +57,3 @@ vim.api.nvim_create_autocmd('FileType', {
 		end, { buffer = true, noremap = true, silent = true })
 	end,
 })
-
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Window ←', silent = true })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Window ↓', silent = true })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Window ↑', silent = true })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Window →', silent = true })
