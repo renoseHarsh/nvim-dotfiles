@@ -29,6 +29,9 @@ vim.keymap.set('n', '<leader>mk', ':make<cr>')
 
 vim.keymap.set('n', 'c', '"_c')
 vim.keymap.set('n', 'C', '"_C')
+vim.keymap.set('v', 'c', '"_c')
+vim.keymap.set('n', '<leader>c', '"+c')
+vim.keymap.set('v', '<leader>c', '"+c')
 
 vim.keymap.set('n', 'd', '"_d')
 vim.keymap.set('n', 'D', '"_D')
@@ -36,24 +39,17 @@ vim.keymap.set('v', 'd', '"_d')
 vim.keymap.set('n', '<leader>d', '"+d')
 vim.keymap.set('v', '<leader>d', '"+d')
 
+vim.keymap.set('x', 'p', [["_dP]])
 vim.keymap.set('n', 'x', '"_x')
 
-vim.api.nvim_create_autocmd('FileType', {
-	pattern = 'cpp',
-	callback = function()
-		vim.keymap.set('n', '<F5>', function()
-			local file = vim.fn.expand '%'
-			local name = vim.fn.expand '%:t:r'
-			local output = '/tmp/' .. name
-			vim.cmd 'w'
-
-			if not _G.cpp_term then
-				local Terminal = require('toggleterm.terminal').Terminal
-				_G.cpp_term = Terminal:new { close_on_exit = true }
-			end
-
-			_G.cpp_term:toggle()
-			_G.cpp_term:send('g++ -Wall -Wextra -o ' .. output .. ' ' .. file .. ' && ' .. output .. '\n')
-		end, { buffer = true, noremap = true, silent = true })
-	end,
-})
+vim.keymap.set('n', "'", function()
+	local char = vim.fn.getcharstr()
+	local current_buf = vim.api.nvim_get_current_buf()
+	local ok = pcall(vim.cmd, "normal! '" .. char)
+	if ok then
+		local new_buf = vim.api.nvim_get_current_buf()
+		if new_buf ~= current_buf then
+			pcall(vim.cmd, 'normal! `"')
+		end
+	end
+end, { desc = "Jump to Mark's File -> Restore Last Cursor Pos" })

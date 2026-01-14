@@ -8,7 +8,19 @@ return {
 		dashboard = {
 			preset = {
 				keys = {
-					{ icon = ' ', key = 's', desc = 'Recent Sessions', action = ':AutoSession search' },
+					{
+						icon = ' ',
+						key = 's',
+						desc = 'Restore Session',
+						action = function()
+							if vim.fn.filereadable 'Session.vim' == 1 then
+								vim.cmd 'source Session.vim'
+								vim.notify('Session restored', vim.log.levels.INFO, { title = 'Session' })
+							else
+								vim.notify('No Session.vim found', vim.log.levels.WARN, { title = 'Session' })
+							end
+						end,
+					},
 					{ icon = ' ', key = 'f', desc = 'Find Files', action = ":lua Snacks.dashboard.pick('files')" },
 					{
 						icon = ' ',
