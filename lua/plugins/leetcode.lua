@@ -17,7 +17,11 @@ return {
 		injector = {
 			['cpp'] = {
 				imports = function()
-					return { '#include "leetcode_def.hpp"', '#include <bits/stdc++.h>', 'using namespace std;' }
+					return {
+						'#include "leetcode_def.hpp" // IWYU pragma: keep',
+						'#include <bits/stdc++.h>',
+						'using namespace std;',
+					}
 				end,
 			},
 		},

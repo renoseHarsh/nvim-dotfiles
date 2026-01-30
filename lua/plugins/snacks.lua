@@ -54,6 +54,13 @@ return {
 	},
 	keys = {
 		{
+			'<leader>gb',
+			function()
+				Snacks.git.blame_line()
+			end,
+			desc = 'Git Branches',
+		},
+		{
 			'<leader>tc',
 			function()
 				Snacks.picker.colorschemes()

@@ -28,6 +28,8 @@ opt.clipboard = 'unnamedplus'
 
 opt.updatetime = 300
 
+opt.mouse = ''
+
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
 vim.g.loaded_netrw = 1
