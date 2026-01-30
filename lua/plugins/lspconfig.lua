@@ -33,6 +33,18 @@ return {
 	{
 		'neovim/nvim-lspconfig',
 		event = 'VeryLazy',
-		vim.lsp.enable { 'lua_ls', 'rust_analyzer', 'jsonls', 'cssls', 'clangd', 'pyright' },
+		config = function()
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			}
+
+			vim.lsp.config('*', {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.enable { 'lua_ls', 'rust_analyzer', 'jsonls', 'cssls', 'clangd', 'pyright' }
+		end,
 	},
 }
