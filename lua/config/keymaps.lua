@@ -53,3 +53,41 @@ vim.keymap.set('n', "'", function()
 		end
 	end
 end, { desc = "Jump to Mark's File -> Restore Last Cursor Pos" })
+
+vim.keymap.set(
+	'n',
+	'<leader>n',
+	require('config.number_conv').show_conversion,
+	{ desc = 'Show number base conversions' }
+)
+
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+	pattern = { 'c', 'cpp' },
+	callback = function(args)
+		vim.keymap.set('n', '<leader>oh', function()
+			local clients = vim.lsp.get_clients { bufnr = 0, name = 'clangd' }
+			if #clients > 0 then
+				local params = { uri = vim.uri_from_bufnr(0) }
+				clients[1].request('textDocument/switchSourceHeader', params, function(err, result)
+					if err then
+						vim.notify('Failed to switch: ' .. err.message, vim.log.levels.ERROR)
+					elseif result then
+						local path = vim.uri_to_fname(result)
+						vim.cmd('edit ' .. path)
+					end
+				end)
+			else
+				local ext = { ['c'] = 'h', ['cpp'] = 'h' }
+				local current = vim.fn.expand '%:e'
+				local base = vim.fn.expand '%:r'
+				local new_ext = ext[current] or 'cpp'
+				local new_file = base .. '.' .. new_ext
+				if vim.fn.filereadable(new_file) == 1 then
+					vim.cmd('edit ' .. new_file)
+				else
+					vim.notify('Corresponding header/source not found', vim.log.levels.WARN)
+				end
+			end
+		end, { buffer = args.buf, desc = 'Switch between source and header' })
+	end,
+})
