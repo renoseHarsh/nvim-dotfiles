@@ -2,12 +2,13 @@ return {
 	{
 		'folke/tokyonight.nvim',
 		config = function()
-			-- require('tokyonight').setup {
-			-- 	transparent = true,
-			-- 	styles = {
-			-- 		sidebars = 'transparent',
-			-- 		floats = 'transparent',
-			-- 	},
+			require('tokyonight').setup {
+				transparent = true,
+				styles = {
+					sidebars = 'transparent',
+					floats = 'transparent',
+				},
+			}
 			vim.cmd [[colorscheme tokyonight]]
 			vim.api.nvim_create_autocmd('UIEnter', {
 				once = true,

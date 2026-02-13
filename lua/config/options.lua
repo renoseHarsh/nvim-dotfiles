@@ -21,14 +21,13 @@ opt.signcolumn = 'yes'
 
 opt.termguicolors = true
 
-opt.mouse = 'a'
-opt.mousemoveevent = true
-
 opt.clipboard = 'unnamedplus'
 
 opt.updatetime = 300
 
 opt.mouse = ''
+
+opt.fillchars:append { eob = ' ' }
 
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
@@ -51,17 +50,7 @@ vim.api.nvim_create_autocmd('InsertLeave', {
 })
 
 vim.diagnostic.config {
+	virtual_text = true,
 	signs = false,
 	severity_sort = true,
 }
-
-vim.api.nvim_create_autocmd('CursorHold', {
-	callback = function()
-		vim.diagnostic.open_float(nil, {
-			scope = 'cursor',
-			source = 'if_many',
-			severity_sort = true,
-			header = '',
-		})
-	end,
-})
