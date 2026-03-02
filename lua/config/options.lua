@@ -54,3 +54,4 @@ vim.diagnostic.config {
 	signs = false,
 	severity_sort = true,
 }
+vim.g.tpipeline_autoembed = 1

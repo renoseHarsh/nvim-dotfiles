@@ -97,6 +97,16 @@ function M.show_conversion()
 
     local win = create_float(content, row, col)
 
+    local group = vim.api.nvim_create_augroup('NumberConv', { clear = true })
+    vim.api.nvim_create_autocmd('CursorMoved', {
+        group = group,
+        buffer = 0,
+        once = true,
+        callback = function()
+            pcall(vim.api.nvim_win_close, win, true)
+        end,
+    })
+
     vim.defer_fn(function()
         pcall(vim.api.nvim_win_close, win, true)
     end, 5000)
